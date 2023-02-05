@@ -73,8 +73,8 @@ img {
 .page-header-conteiner {
   display: flex;
   align-items: center;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .logo {
   text-decoration: none;
@@ -99,22 +99,42 @@ img {
   align-items: center;
   gap: 40px;
 }
-.header-item {
-  position: relative;
+.link-first {
+  display: flex;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  text-decoration: none;
+  color: var(--color-primary);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
 }
-.current {
-  color: var(--link-hover);
+.header-item {
   position: relative;
 }
 .current::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -24px;
+  top: 100%;
+  transform: translate(0, -3px);
+  display: block;
   width: 100%;
   height: 4px;
   border-radius: 2px;
   background-color: var(--link-hover);
+}
+
+.link-first:is(:hover, :focus),
+.link-address:is(:hover, :focus) {
+  color: var(--link-hover);
+}
+.current {
+  color: var(--link-hover);
+  position: relative;
 }
 .address {
   font-style: normal;
@@ -124,18 +144,6 @@ img {
   display: flex;
   align-items: center;
   gap: 40px;
-}
-.link-first {
-  text-decoration: none;
-  color: var(--color-primary);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1)
-}
-.link-first:is(:hover, :focus),
-.link-address:is(:hover, :focus) {
-  color: var(--link-hover);
 }
 .link-address {
   font-style: normal;
@@ -281,7 +289,7 @@ img {
   color: var(--color-text-features);
   text-align: center;
   margin-top: 8px;
-  padding-bottom: 32px;
+  margin-bottom: 8px;
 }
 .section-our-team {
   background-color: 
@@ -292,6 +300,7 @@ img {
 .our-team-text {
   text-align: center;
   padding-top: 32px;
+  padding-bottom: 32px;
 }
 /* =======our-team-footer===== */
 .our-team-footer-list {
@@ -299,7 +308,6 @@ img {
   align-items: center;
   gap: 24px;
   justify-content: center;
-  padding-bottom: 32px;
 }
 .our-team-footer-list-link {
   display: flex;
@@ -494,8 +502,17 @@ img {
 .flex-element-link:is(:hover, :focus) .overlay {
   transform: translate(0, 0);
 }
+.flex-element-link:is(:hover, :focus) {
+  box-shadow:  0px 1px 6px rgba(46, 47, 66, 0.16), 
+  0px 1px 1px rgba(46, 47, 66, 0.16), 
+  0px 2px 1px rgba(46, 47, 66, 0.16);
+}
 .flex-element-link {
   display: block;
+  box-shadow: 0px 1px 6px 
+  rgba(46, 47, 66, 0.08);
+  flex-basis: calc((100% - 48px) / 3);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .flex-conteiner {
   display: flex;
@@ -505,15 +522,7 @@ img {
   margin-top: 72px;
 }
 .flex-element {
-  box-shadow: 0px 1px 6px 
-  rgba(46, 47, 66, 0.08);
   flex-basis: calc((100% - 48px) / 3);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.flex-element:is(:hover, :focus) {
-  box-shadow:  0px 1px 6px rgba(46, 47, 66, 0.16), 
-  0px 1px 1px rgba(46, 47, 66, 0.16), 
-  0px 2px 1px rgba(46, 47, 66, 0.16);
 }
 .flex-element-text {
   border-color: 
